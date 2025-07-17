@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,9 +23,32 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Language toggle state (default to English)
+  // This is a placeholder; in a real app, use context or i18n
+  // For now, just a static toggle UI
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <nav className="navbar">
+          <div className="nav-logo logo-placeholder">
+            {/* Logo Placeholder */}
+            <span>Logo</span>
+          </div>
+          <input type="checkbox" id="nav-toggle" className="nav-toggle" />
+          <label htmlFor="nav-toggle" className="nav-toggle-label">
+            <span></span>
+          </label>
+          <ul className="nav-links">
+            <li><Link href="#home">Home</Link></li>
+            <li><Link href="#about">About</Link></li>
+            <li><Link href="#services">Services</Link></li>
+            <li><Link href="#team">Our Team</Link></li>
+            <li><Link href="#contact">Contact</Link></li>
+            <li className="lang-toggle">
+              <button type="button">EN</button> / <button type="button">GR</button>
+            </li>
+          </ul>
+        </nav>
         {children}
       </body>
     </html>

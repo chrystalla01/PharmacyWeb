@@ -1,12 +1,21 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --nav-height: 4rem; /* Set nav height for scroll offset */
+  scroll-padding-top: var(--nav-height);
+  scroll-behavior: smooth;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
   }
 }
 

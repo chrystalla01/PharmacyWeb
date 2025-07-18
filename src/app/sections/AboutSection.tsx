@@ -49,12 +49,12 @@ export default function AboutSection() {
           lineHeight: '2',
           fontFamily: 'Times, Times New Roman, times-roman, georgia, serif'
         }}>
-          <li>Monday: 8:00 AM - 8:00 PM</li>
-          <li>Tuesday: 8:00 AM - 8:00 PM</li>
-          <li>Wednesday: 8:00 AM - 8:00 PM</li>
-          <li>Thursday: 8:00 AM - 8:00 PM</li>
-          <li>Friday: 8:00 AM - 8:00 PM</li>
-          <li>Saturday: 9:00 AM - 5:00 PM</li>
+          <li>Monday: 8:00 AM - 13:30 PM | 16:00 PM - 19:30 PM</li>
+          <li>Tuesday: 8:00 AM - 13:30 PM | 16:00 PM - 19:30 PM</li>
+          <li>Wednesday: 8:00 AM - 13:30 PM</li>
+          <li>Thursday: 8:00 AM - 13:30 PM | 16:00 PM - 19:30 PM</li>
+          <li>Friday: 8:00 AM - 13:30 PM | 16:00 PM - 19:30 PM</li>
+          <li>Saturday: 8:00 AM - 13:30 PM</li>
           <li>Sunday: Closed</li>
         </ul>
       </div>

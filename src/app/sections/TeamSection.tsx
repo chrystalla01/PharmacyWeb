@@ -4,7 +4,7 @@ export default function TeamSection({ lang = 'en' }: { lang?: 'en' | 'gr' }) {
     en: {
       title: 'Our Team',
       members: [
-        { name: 'Gabriela' },
+        { name: 'Gabriela', img: 'imgs/gaby.jpg' },
         { name: 'Kalliopi' },
         { name: 'Philippos' },
         { name: 'Elena' },
@@ -13,7 +13,7 @@ export default function TeamSection({ lang = 'en' }: { lang?: 'en' | 'gr' }) {
     gr: {
       title: 'Η Ομάδα μας',
       members: [
-        { name: 'Γαβριέλλα' },
+        { name: 'Γαβριέλλα', img: 'imgs/gaby.jpg' },
         { name: 'Καλλιόπη' },
         { name: 'Φίλιππος' },
         { name: 'Έλενα' },
@@ -94,8 +94,13 @@ export default function TeamSection({ lang = 'en' }: { lang?: 'en' | 'gr' }) {
                 color: '#6b7280',
                 border: '2px dashed #b6c2d1',
                 flexShrink: 0,
+                overflow: 'hidden',
               }}>
-                <span style={{ fontSize: '3rem', fontWeight: 'bold' }}>👤</span>
+                {member.img ? (
+                  <img src={member.img} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+                ) : (
+                  <span style={{ fontSize: '3rem', fontWeight: 'bold' }}>👤</span>
+                )}
               </div>
               <div style={{
                 fontFamily: 'Gill Sans, Verdana',

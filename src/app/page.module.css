@@ -1,10 +1,10 @@
 .page {
   --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+  --gray-alpha-200: rgba(var(--gray-rgb), 1.30);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.20);
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
+  --button-primary-hover: #000000;
+  --button-secondary-hover: #6c6262;
 
   display: grid;
   grid-template-rows: 20px 1fr 20px;
@@ -180,19 +180,24 @@ a.secondary {
 .heroImageCover {
   position: relative;
   width: 100vw;
-  height: 100dvh;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
+/* Default: cover for desktop and landscape */
 .heroImageCover img {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  height: 100dvh !important;
-  min-height: 60vh;
   object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  margin: 0 auto;
+}
+
+/* On mobile portrait, use contain to show the whole portrait image */
+@media (max-width: 600px) and (orientation: portrait) {
+  .heroImageCover img {
+    object-fit: contain;
+  }
 }
 
 .heroOverlay {
@@ -255,4 +260,21 @@ a.secondary {
   .heroTitle h1 {
     font-size: 2rem;
   }
+}
+
+body {
+  background: linear-gradient(180deg, #ece5df 0%, #d1e0e7 100%);
+  background-image: url('https://www.transparenttextures.com/patterns/wood.png'), linear-gradient(180deg, #ece5df 0%, #d1e0e7 100%);
+  background-repeat: repeat, no-repeat;
+  background-size: auto, 100% 100%;
+}
+
+.about-section {
+  /* background: linear-gradient(180deg, #ece5df 0%, #d1e0e7 100%); */
+}
+
+.main-content-bg {
+  background-image: url('https://www.transparenttextures.com/patterns/wood.png'), linear-gradient(180deg, #ececec 0%, #bdbdbd 100%);
+  background-repeat: repeat, no-repeat;
+  background-size: auto, 100% 100%;
 }

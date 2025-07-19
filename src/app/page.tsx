@@ -9,10 +9,12 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <TeamSection />
-      <ContactSection />
+      <main className="main-content-bg">
+        <AboutSection />
+        <ServicesSection />
+        <TeamSection />
+        <ContactSection />
+      </main>
       <div className={styles.page}>
         <main className={styles.main}>
           {/* You can remove or repurpose this default content */}

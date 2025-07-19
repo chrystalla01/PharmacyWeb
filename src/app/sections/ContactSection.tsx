@@ -1,6 +1,6 @@
 export default function ContactSection() {
   return (
-    <section id="contact" className="contact-section" style={{ marginBottom: 0, paddingBottom: 0 }}>
+    <section id="contact" className="contact-section" style={{ background: '#fff', marginBottom: 0, paddingBottom: '1.2rem' }}>
       <h2 style={{
         fontFamily: 'Gill Sans, Verdana',
         color: '#444',
@@ -34,14 +34,11 @@ export default function ContactSection() {
           width: '100%',
           maxWidth: '480px',
           height: '220px',
-          background: '#e0e7ef',
-          borderRadius: '16px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           color: '#6b7280',
           fontSize: '1.1rem',
-          border: '2px dashed #b6c2d1',
           margin: '0 auto 1.2rem',
           overflow: 'hidden',
           padding: 0,

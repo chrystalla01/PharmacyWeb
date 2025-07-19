@@ -27,11 +27,11 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="about" className="about-section" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '40vh', paddingTop: 0, marginTop: 0 }}>
+    <section id="about" className="about-section" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '40vh', padding: '0 0 1.2rem 0', marginTop: 0 }}>
       <div style={{
         maxWidth: '100%',
         width: '100%',
-        boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+        background: '#fff',
         padding: '2.5rem 2.5rem 2rem 2.5rem',
         marginBottom: '2rem',
         textAlign: 'center',
@@ -44,14 +44,25 @@ export default function AboutSection() {
           color: '#444',
           margin: 0,
           padding: '0 0 12px 0',
-          fontSize: '3.2rem',
+          fontSize: '2.6rem',
           lineHeight: '2.8rem',
           letterSpacing: '-2px',
           fontWeight: 'bold',
-          marginBottom: '1rem',
+          marginBottom: '0.5rem',
           marginTop: '1rem',
           textAlign: 'center',
-        }}>About Us</h2>
+          position: 'relative',
+        }}>
+          About Us
+          <span style={{
+            display: 'block',
+            width: '60px',
+            height: '4px',
+            background: '#b6c2d1',
+            borderRadius: '2px',
+            margin: '12px auto 0',
+          }}></span>
+        </h2>
         <div style={{
           fontSize: '1.55rem',
           color: '#444',
@@ -89,20 +100,20 @@ export default function AboutSection() {
             <option value="october-may" style={{ color: '#fff', background: '#bdbdbd' }}>October–May</option>
           </select>
         </div>
-        <table style={{ width: '100%', borderCollapse: 'collapse', margin: '0 auto', fontFamily: 'Times, Times New Roman, times-roman, georgia, serif', fontSize: '1.15rem', color: '#444', marginTop: '1rem' }}>
+        <table style={{ width: '100%', maxWidth: '420px', borderCollapse: 'collapse', margin: '0 auto', fontFamily: 'Times, Times New Roman, times-roman, georgia, serif', fontSize: '0.98rem', color: '#444', marginTop: '1rem' }}>
           <thead>
             <tr>
-              <th style={{ textAlign: 'center', padding: '0.5rem', fontWeight: 'bold', fontSize: '1rem', borderBottom: '1px solid #ddd', borderRight: '1px solid #ddd' }}>Day</th>
-              <th style={{ textAlign: 'center', padding: '0.5rem', fontWeight: 'bold', fontSize: '1rem', borderBottom: '1px solid #ddd', borderRight: '1px solid #ddd' }}>Morning</th>
-              <th style={{ textAlign: 'center', padding: '0.5rem', fontWeight: 'bold', fontSize: '1rem', borderBottom: '1px solid #ddd' }}>Evening</th>
+              <th style={{ textAlign: 'center', padding: '0.35rem', fontWeight: 'bold', fontSize: '0.95rem', borderBottom: '1px solid #ddd', borderRight: '1px solid #ddd' }}>Day</th>
+              <th style={{ textAlign: 'center', padding: '0.35rem', fontWeight: 'bold', fontSize: '0.95rem', borderBottom: '1px solid #ddd', borderRight: '1px solid #ddd' }}>Morning</th>
+              <th style={{ textAlign: 'center', padding: '0.35rem', fontWeight: 'bold', fontSize: '0.95rem', borderBottom: '1px solid #ddd' }}>Evening</th>
             </tr>
           </thead>
           <tbody>
             {times[season].map((row: TimeRow, idx: number) => (
               <tr key={row.day} style={{ borderBottom: '1px solid #eee' }}>
-                <td style={{ textAlign: 'center', fontWeight: 'bold', padding: '0.5rem', borderRight: '1px solid #eee' }}>{row.day}</td>
-                <td style={{ textAlign: 'center', padding: '0.5rem', borderRight: '1px solid #eee' }}>{row.morning}</td>
-                <td style={{ textAlign: 'center', padding: '0.5rem' }}>{row.evening}</td>
+                <td style={{ textAlign: 'center', fontWeight: 'bold', padding: '0.35rem', borderRight: '1px solid #eee' }}>{row.day}</td>
+                <td style={{ textAlign: 'center', padding: '0.35rem', borderRight: '1px solid #eee' }}>{row.morning}</td>
+                <td style={{ textAlign: 'center', padding: '0.35rem' }}>{row.evening}</td>
               </tr>
             ))}
           </tbody>

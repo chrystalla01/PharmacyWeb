@@ -37,6 +37,7 @@ export default function AboutSection() {
         textAlign: 'center',
         marginLeft: 'auto',
         marginRight: 'auto',
+        animation: 'fadeIn 1.2s',
       }}>
         <h2 style={{
           fontFamily: 'Gill Sans, Verdana',
@@ -107,6 +108,12 @@ export default function AboutSection() {
           </tbody>
         </table>
       </div>
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(40px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </section>
   );
 } 

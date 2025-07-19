@@ -24,6 +24,7 @@ export default function ServicesSection() {
         fontSize: '1.3rem',
         lineHeight: 1.7,
         fontFamily: 'Times, Times New Roman, times-roman, georgia, serif',
+        animation: 'fadeInUp 1.1s',
       }}>
         <li>Prescription dispensing and refills</li>
         <li>Medication counseling and advice</li>
@@ -42,9 +43,16 @@ export default function ServicesSection() {
         fontStyle: 'italic',
         textAlign: 'left',
         padding: '0 1.5rem',
+        animation: 'fadeInUp 1.3s',
       }}>
         <strong>Note:</strong> Prescription medicines are dispensed only with a valid doctor’s note.
       </div>
+      <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(40px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </section>
   );
 } 

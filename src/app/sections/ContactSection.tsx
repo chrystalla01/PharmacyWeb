@@ -24,6 +24,7 @@ export default function ContactSection() {
         fontSize: '1.2rem',
         marginBottom: 0,
         paddingBottom: 0,
+        animation: 'fadeIn 1.2s',
       }}>
         <div style={{ marginBottom: '1.2rem' }}>
           <strong>Telephone:</strong> +357 22 123456<br />
@@ -44,6 +45,7 @@ export default function ContactSection() {
           margin: '0 auto 1.2rem',
           overflow: 'hidden',
           padding: 0,
+          animation: 'fadeIn 1.5s',
         }}>
           <iframe
             title="Jomelita Pharmacy Map"
@@ -60,6 +62,12 @@ export default function ContactSection() {
           &copy; {new Date().getFullYear()} Made by Chrystalla Fella
         </div>
       </div>
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(40px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </section>
   );
 } 

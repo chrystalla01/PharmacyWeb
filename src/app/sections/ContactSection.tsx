@@ -56,6 +56,9 @@ export default function ContactSection() {
         <div style={{ fontSize: '1.1rem', color: '#444', marginBottom: '2.5rem' }}>
           <strong>Address:</strong> 123 Main Street, Dromolaxia, Cyprus
         </div>
+        <div style={{ fontSize: '0.95rem', color: 'gray', textAlign: 'center', marginTop: '2rem', marginBottom: 0 }}>
+          &copy; {new Date().getFullYear()} Made by Chrystalla Fella
+        </div>
       </div>
     </section>
   );

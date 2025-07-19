@@ -1,7 +1,19 @@
 import Image from "next/image";
 import styles from "../page.module.css";
 
-export default function HeroSection() {
+export default function HeroSection({ lang = 'en' }: { lang?: 'en' | 'gr' }) {
+  const text = {
+    en: {
+      title: 'JOMELITA LTD',
+      subtitle: 'Dromolaxia Pharmacy',
+    },
+    gr: {
+      title: 'JOMELITA LTD',
+      subtitle: 'Φαρμακείο Δρομολαξιάς',
+    },
+  };
+  const t = text[lang];
+
   return (
     <section id="home" className={styles.heroSection}>
       <div className={styles.heroImageCover}>
@@ -15,8 +27,8 @@ export default function HeroSection() {
         <div className={styles.heroOverlay} />
         <div className={styles.heroTitle}>
           <h1>
-            JOMELITA&nbsp;LTD<br />
-            <span>Dromolaxia&nbsp;Pharmacy</span>
+            {t.title}<br />
+            <span style={{ display: 'block', marginTop: '0.5rem' }}>{t.subtitle}</span>
           </h1>
         </div>
       </div>

@@ -1,4 +1,27 @@
-export default function TeamSection() {
+
+export default function TeamSection({ lang = 'en' }: { lang?: 'en' | 'gr' }) {
+  const text = {
+    en: {
+      title: 'Our Team',
+      members: [
+        { name: 'Gabriela' },
+        { name: 'Kalliopi' },
+        { name: 'Philippos' },
+        { name: 'Elena' },
+      ],
+    },
+    gr: {
+      title: 'Η Ομάδα μας',
+      members: [
+        { name: 'Γαβριέλλα' },
+        { name: 'Καλλιόπη' },
+        { name: 'Φίλιππος' },
+        { name: 'Έλενα' },
+      ],
+    },
+  };
+  const t = text[lang];
+
   return (
     <section id="team" className="team-section" style={{ padding: '0 0 0.5rem 0' }}>
       <div style={{
@@ -23,7 +46,7 @@ export default function TeamSection() {
           textAlign: 'center',
           position: 'relative',
         }}>
-          Our Team
+          {t.title}
           <span style={{
             display: 'block',
             width: '50px',
@@ -42,12 +65,7 @@ export default function TeamSection() {
           padding: '0 1.5rem',
           alignItems: 'center',
         }}>
-          {[
-            { name: 'Gabriela' },
-            { name: 'Kalliopi' },
-            { name: 'Philippos' },
-            { name: 'Elena' },
-          ].map((member, idx) => (
+          {t.members.map((member, idx) => (
             <div
               key={member.name}
               style={{

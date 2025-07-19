@@ -1,4 +1,27 @@
-export default function ContactSection() {
+
+export default function ContactSection({ lang = 'en' }: { lang?: 'en' | 'gr' }) {
+  const text = {
+    en: {
+      title: 'Contact Us',
+      telephone: 'Telephone',
+      email: 'Email',
+      address: 'Address',
+      addressValue: '123 Main Street, Dromolaxia, Cyprus',
+      note: 'Made by Chrystalla Fella',
+      mapTitle: 'Jomelita Pharmacy Map',
+    },
+    gr: {
+      title: 'Επικοινωνία',
+      telephone: 'Τηλ',
+      email: 'Ηλ. ταχυδρομείο',
+      address: 'Διεύθυνση',
+      addressValue: 'Οδός Κεντρική 123, Δρομολαξιά, Κύπρος',
+      note: 'Made by Chrystalla Fella',
+      mapTitle: 'Χάρτης Φαρμακείου Jomelita',
+    },
+  };
+  const t = text[lang];
+
   return (
     <section id="contact" className="contact-section" style={{ background: '#fff', marginBottom: 0, paddingBottom: '1.2rem' }}>
       <h2 style={{
@@ -13,7 +36,7 @@ export default function ContactSection() {
         marginBottom: '1rem',
         marginTop: '6rem',
         textAlign: 'center',
-      }}>Contact Us</h2>
+      }}>{t.title}</h2>
       <div style={{
         maxWidth: '600px',
         margin: '2rem auto 0',
@@ -27,8 +50,8 @@ export default function ContactSection() {
         animation: 'fadeIn 1.2s',
       }}>
         <div style={{ marginBottom: '1.2rem' }}>
-          <strong>Telephone:</strong> +357 22 123456<br />
-          <strong>Email:</strong> info@jomelitapharmacy.com
+          <strong>{t.telephone}:</strong> +357 22 123456<br />
+          <strong>{t.email}:</strong> info@jomelitapharmacy.com
         </div>
         <div style={{
           width: '100%',
@@ -45,7 +68,7 @@ export default function ContactSection() {
           animation: 'fadeIn 1.5s',
         }}>
           <iframe
-            title="Jomelita Pharmacy Map"
+            title={t.mapTitle}
             src="https://www.openstreetmap.org/export/embed.html?bbox=33.331%2C34.822%2C33.352%2C34.832&layer=mapnik&marker=34.827%2C33.341"
             style={{ border: 0, width: '100%', height: '100%' }}
             allowFullScreen
@@ -53,10 +76,10 @@ export default function ContactSection() {
           ></iframe>
         </div>
         <div style={{ fontSize: '1.1rem', color: '#444', marginBottom: '2.5rem' }}>
-          <strong>Address:</strong> 123 Main Street, Dromolaxia, Cyprus
+          <strong>{t.address}:</strong> {t.addressValue}
         </div>
         <div style={{ fontSize: '0.95rem', color: 'gray', textAlign: 'center', marginTop: '2rem', marginBottom: 0 }}>
-          &copy; {new Date().getFullYear()} Made by Chrystalla Fella
+          &copy; {new Date().getFullYear()} {t.note}
         </div>
       </div>
       <style>{`

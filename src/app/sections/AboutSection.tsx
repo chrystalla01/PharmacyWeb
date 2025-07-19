@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-export default function AboutSection() {
+export default function AboutSection({ lang = 'en' }: { lang?: 'en' | 'gr' }) {
   const [season, setSeason] = useState<'may-october' | 'october-may'>('may-october');
 
   type TimeRow = { day: string; morning: string; evening: string };
@@ -26,6 +26,32 @@ export default function AboutSection() {
     ],
   };
 
+  const text = {
+    en: {
+      title: 'About Us',
+      body: `Established in 2012, Jomelita Pharmacy has been proudly serving the Dromolaxia community with trusted, professional care. Our team of licensed pharmacists brings over 30 years of experience to ensure you receive safe, informed, and friendly support every time you visit.\n\nWe focus on creating a welcoming environment where you can get the advice and attention you need—whether you're managing prescriptions or simply looking for guidance.\n\nAs a locally owned pharmacy, we’re committed to putting the health of our community first.`,
+      opening: 'Opening Times',
+      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      closed: 'Closed',
+      morning: 'Morning',
+      evening: 'Evening',
+      mayOct: 'May–October',
+      octMay: 'October–May',
+    },
+    gr: {
+      title: 'Σχετικά με εμάς',
+      body: `Από το 2012, το Φαρμακείο Jomelita εξυπηρετεί με υπευθυνότητα και επαγγελματισμό την κοινότητα της Δρομολαξιάς. Η ομάδα μας, με πάνω από 30 χρόνια εμπειρίας, διασφαλίζει ότι λαμβάνετε πάντα ασφαλή, ενημερωμένη και φιλική εξυπηρέτηση.\n\nΔίνουμε έμφαση στη δημιουργία ενός φιλόξενου περιβάλλοντος όπου μπορείτε να λάβετε τις συμβουλές και την προσοχή που χρειάζεστε—είτε διαχειρίζεστε συνταγές είτε ζητάτε καθοδήγηση.\n\nΩς τοπικό φαρμακείο, προτεραιότητά μας είναι η υγεία της κοινότητάς μας.`,
+      opening: 'Ώρες Λειτουργίας',
+      days: ['Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο', 'Κυριακή'],
+      closed: 'Κλειστά',
+      morning: 'Πρωί',
+      evening: 'Απόγευμα',
+      mayOct: 'Μάιος–Οκτώβριος',
+      octMay: 'Οκτώβριος–Μάιος',
+    }
+  };
+  const t = text[lang];
+
   return (
     <section id="about" className="about-section" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '40vh', padding: '0 0 1.2rem 0', marginTop: 0 }}>
       <div style={{
@@ -39,41 +65,7 @@ export default function AboutSection() {
         marginRight: 'auto',
         animation: 'fadeIn 1.2s',
       }}>
-        <h2 style={{
-          fontFamily: 'Gill Sans, Verdana',
-          color: '#444',
-          margin: 0,
-          padding: '0 0 12px 0',
-          fontSize: '2.6rem',
-          lineHeight: '2.8rem',
-          letterSpacing: '-2px',
-          fontWeight: 'bold',
-          marginBottom: '0.5rem',
-          marginTop: '1rem',
-          textAlign: 'center',
-          position: 'relative',
-        }}>
-          About Us
-          <span style={{
-            display: 'block',
-            width: '60px',
-            height: '4px',
-            background: '#b6c2d1',
-            borderRadius: '2px',
-            margin: '12px auto 0',
-          }}></span>
-        </h2>
-        <div style={{
-          fontSize: '1.55rem',
-          color: '#444',
-          lineHeight: 1.8,
-          fontFamily: 'Times, Times New Roman, times-roman, georgia, serif',
-        }}>
-          Established in 2012, Jomelita Pharmacy has been proudly serving the Dromolaxia community with trusted, professional care. Our team of licensed pharmacists brings over 30 years of experience to ensure you receive safe, informed, and friendly support every time you visit.<br /><br />
-          We focus on creating a welcoming environment where you can get the advice and attention you need—whether you're managing prescriptions or simply looking for guidance.<br /><br />
-          As a locally owned pharmacy, we’re committed to putting the health of our community first.
-        </div>
-        <h3 style={{ fontFamily: 'Gill Sans, Verdana', fontSize: '1.5rem',color: '#444',lineHeight: '16px', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 'bold', margin: 0, marginBottom: '0.5rem', marginTop: '2.5rem' }}>Opening Times</h3>
+        <h3 style={{ fontFamily: 'Gill Sans, Verdana', fontSize: '1.5rem',color: '#444',lineHeight: '16px', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 'bold', margin: 0, marginBottom: '0.5rem', marginTop: '1rem' }}>{t.opening}</h3>
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
           <select
             style={{
@@ -96,28 +88,60 @@ export default function AboutSection() {
             value={season}
             onChange={e => setSeason(e.target.value as 'may-october' | 'october-may')}
           >
-            <option value="may-october" style={{ color: '#fff', background: '#bdbdbd' }}>May–October</option>
-            <option value="october-may" style={{ color: '#fff', background: '#bdbdbd' }}>October–May</option>
+            <option value="may-october" style={{ color: '#fff', background: '#bdbdbd' }}>{t.mayOct}</option>
+            <option value="october-may" style={{ color: '#fff', background: '#bdbdbd' }}>{t.octMay}</option>
           </select>
         </div>
         <table style={{ width: '100%', maxWidth: '420px', borderCollapse: 'collapse', margin: '0 auto', fontFamily: 'Times, Times New Roman, times-roman, georgia, serif', fontSize: '0.98rem', color: '#444', marginTop: '1rem' }}>
           <thead>
             <tr>
-              <th style={{ textAlign: 'center', padding: '0.35rem', fontWeight: 'bold', fontSize: '0.95rem', borderBottom: '1px solid #ddd', borderRight: '1px solid #ddd' }}>Day</th>
-              <th style={{ textAlign: 'center', padding: '0.35rem', fontWeight: 'bold', fontSize: '0.95rem', borderBottom: '1px solid #ddd', borderRight: '1px solid #ddd' }}>Morning</th>
-              <th style={{ textAlign: 'center', padding: '0.35rem', fontWeight: 'bold', fontSize: '0.95rem', borderBottom: '1px solid #ddd' }}>Evening</th>
+              <th style={{ textAlign: 'center', padding: '0.35rem', fontWeight: 'bold', fontSize: '0.95rem', borderBottom: '1px solid #ddd', borderRight: '1px solid #ddd' }}>{t.days[0]}</th>
+              <th style={{ textAlign: 'center', padding: '0.35rem', fontWeight: 'bold', fontSize: '0.95rem', borderBottom: '1px solid #ddd', borderRight: '1px solid #ddd' }}>{t.morning}</th>
+              <th style={{ textAlign: 'center', padding: '0.35rem', fontWeight: 'bold', fontSize: '0.95rem', borderBottom: '1px solid #ddd' }}>{t.evening}</th>
             </tr>
           </thead>
           <tbody>
             {times[season].map((row: TimeRow, idx: number) => (
               <tr key={row.day} style={{ borderBottom: '1px solid #eee' }}>
-                <td style={{ textAlign: 'center', fontWeight: 'bold', padding: '0.35rem', borderRight: '1px solid #eee' }}>{row.day}</td>
+                <td style={{ textAlign: 'center', fontWeight: 'bold', padding: '0.35rem', borderRight: '1px solid #eee' }}>{lang === 'gr' ? t.days[idx] : row.day}</td>
                 <td style={{ textAlign: 'center', padding: '0.35rem', borderRight: '1px solid #eee' }}>{row.morning}</td>
-                <td style={{ textAlign: 'center', padding: '0.35rem' }}>{row.evening}</td>
+                <td style={{ textAlign: 'center', padding: '0.35rem' }}>{row.evening === 'Closed' && lang === 'gr' ? t.closed : row.evening}</td>
               </tr>
             ))}
           </tbody>
         </table>
+        <h2 style={{
+          fontFamily: 'Gill Sans, Verdana',
+          color: '#444',
+          margin: 0,
+          padding: '0 0 12px 0',
+          fontSize: '2.6rem',
+          lineHeight: '2.8rem',
+          letterSpacing: '-2px',
+          fontWeight: 'bold',
+          marginBottom: '0.5rem',
+          marginTop: '2.5rem',
+          textAlign: 'center',
+          position: 'relative',
+        }}>
+          {t.title}
+          <span style={{
+            display: 'block',
+            width: '50px',
+            height: '4px',
+            background: '#b6c2d1',
+            borderRadius: '2px',
+            margin: '12px auto 0',
+          }}></span>
+        </h2>
+        <div style={{
+          fontSize: '1.55rem',
+          color: '#444',
+          lineHeight: 1.8,
+          fontFamily: 'Times, Times New Roman, times-roman, georgia, serif',
+        }}>
+          {t.body.split('\n').map((line, i) => <span key={i}>{line}<br /><br /></span>)}
+        </div>
       </div>
       <style>{`
         @keyframes fadeIn {

@@ -15,8 +15,8 @@ export default function HeroSection() {
         <div className={styles.heroOverlay} />
         <div className={styles.heroTitle}>
           <h1>
-            JOMELITA LTD
-            <span>Dromolaxia Pharmacy</span>
+            JOMELITA&nbsp;LTD<br />
+            <span>Dromolaxia&nbsp;Pharmacy</span>
           </h1>
         </div>
       </div>

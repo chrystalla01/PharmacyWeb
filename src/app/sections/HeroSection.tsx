@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section id="home" className={styles.heroSection}>
       <div className={styles.heroImageCover}>
         <Image
-          src="/imgs/meds.jpg"
+          src="/imgs/meds-v2.jpg"
           alt="Assorted colorful pharmacy pills and capsules"
           fill
           style={{ objectFit: "cover", zIndex: 1 }}
